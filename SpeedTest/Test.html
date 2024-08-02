@@ -1,0 +1,58 @@
+<html>
+<title>Speed Test</title>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function fetchData() {
+            $.getJSON('/data', data => {
+                $('#downloadField').val(data.download);
+                $('#uploadField').val(data.upload);
+            }).fail((_, textStatus, error) => {
+                console.error('Error fetching data:', textStatus, error);
+            });
+        }
+
+        $(document).ready(function() {
+            fetchData(); // Call fetchData when the page loads
+        });
+    </script>
+<style>
+
+#main{
+border-radius: 25px;
+block-size: 300px;
+width : 30%;
+background: #DCDCDC;
+opacity: 0.5;
+}
+
+h1{
+text-align: center;
+}
+
+h3{
+ margin-left: 70px;
+ margin-top: 70px;
+}
+.background_clr{
+background-color: grey;
+}
+
+</style>
+</head>
+<body class=background_clr>
+
+<div id="main" style="margin-left: 500px;margin-top: 200px;">
+  <h1>Internet Speed Test</h1>
+
+    <h3><p>Download: <input type="text"  style="margin-left: 68px;" id="downloadField" readonly></p></h3>
+    <h3><p>Upload: <input type="text"   style="margin-left: 90px;" id="uploadField" readonly></p></h3>
+
+</div>
+
+
+</body>
+</html>

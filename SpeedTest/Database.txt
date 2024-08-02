@@ -1,0 +1,8 @@
+CREATE TABLE results (
+    Id SERIAL PRIMARY KEY,
+    download FLOAT,
+    upload FLOAT
+);
+
+SELECT * FROM public.results
+ORDER BY id ASC 
